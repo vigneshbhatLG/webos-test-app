@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1280" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>webOSTV.js — Simulator Test Suite</title>
+    <script src="lib/webOSTVjs-1.2.13/webOSTV.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>webOSTV.js &mdash; Simulator Test Suite</h1>
+      <span id="clock"></span>
+    </header>
+
+    <!-- TAB BAR -->
+    <nav id="tab-bar">
+      <button class="tab-btn active" data-tab="tab-system">System</button>
+      <button class="tab-btn" data-tab="tab-device">Device</button>
+      <button class="tab-btn" data-tab="tab-app">App Info</button>
+      <button class="tab-btn" data-tab="tab-service">Luna Services</button>
+      <button class="tab-btn" data-tab="tab-keys">Key Events</button>
+      <button class="tab-btn" data-tab="tab-lifecycle">Lifecycle</button>
+      <button class="tab-btn" data-tab="tab-cursor">Cursor / Input</button>
+      <button class="tab-btn" data-tab="tab-log">Event Log</button>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 1 — SYSTEM
+    ═══════════════════════════════════════════ -->
+    <section id="tab-system" class="tab-content active">
+      <h2>System Info</h2>
+      <table>
+        <tr>
+          <th>libVersion</th><td id="libVersion">—</td>
+          <th>platform.tv</th><td id="platform-tv">—</td>
+        </tr>
+        <tr>
+          <th>platform.watch</th><td id="platform-watch">—</td>
+          <th>platform.unknown</th><td id="platform-unknown">—</td>
+        </tr>
+        <tr>
+          <th>platform.chrome</th><td id="platform-chrome">—</td>
+          <th>PalmSystem present</th><td id="palmsystem">—</td>
+        </tr>
+        <tr>
+          <th>country</th><td id="sys-country">—</td>
+          <th>smartServiceCountry</th><td id="sys-smart-country">—</td>
+        </tr>
+        <tr>
+          <th>timezone</th><td id="sys-timezone" colspan="3">—</td>
+        </tr>
+        <tr>
+          <th>userAgent</th><td id="useragent" colspan="3" class="wrap">—</td>
+        </tr>
+        <tr>
+          <th>PalmSystem.deviceInfo (raw)</th>
+          <td id="ps-deviceinfo" colspan="3" class="wrap mono">—</td>
+        </tr>
+      </table>
+      <div class="btn-row">
+        <button id="btn-refresh-system" class="action-btn">Refresh</button>
+        <button id="btn-platformBack" class="action-btn warn">platformBack()</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 2 — DEVICE
+    ═══════════════════════════════════════════ -->
+    <section id="tab-device" class="tab-content">
+      <h2>Device Info <span class="badge" id="device-status">pending…</span></h2>
+      <table>
+        <tr>
+          <th>modelName</th><td id="d-modelName">—</td>
+          <th>brandName</th><td id="d-brandName">—</td>
+        </tr>
+        <tr>
+          <th>manufacturer</th><td id="d-manufacturer">—</td>
+          <th>mainboardMaker</th><td id="d-mainboardMaker">—</td>
+        </tr>
+        <tr>
+          <th>version (firmware)</th><td id="d-version">—</td>
+          <th>sdkVersion</th><td id="d-sdkVersion">—</td>
+        </tr>
+        <tr>
+          <th>screenWidth</th><td id="d-screenWidth">—</td>
+          <th>screenHeight</th><td id="d-screenHeight">—</td>
+        </tr>
+        <tr>
+          <th>ddrSize</th><td id="d-ddrSize">—</td>
+          <th>platformBizType</th><td id="d-platformBizType">—</td>
+        </tr>
+        <tr>
+          <th>UHD</th><td id="d-uhd">—</td>
+          <th>UHD 8K</th><td id="d-uhd8K">—</td>
+        </tr>
+        <tr>
+          <th>OLED</th><td id="d-oled">—</td>
+          <th>HDR10</th><td id="d-hdr10">—</td>
+        </tr>
+        <tr>
+          <th>Dolby Vision</th><td id="d-dolbyVision">—</td>
+          <th>Dolby Atmos</th><td id="d-dolbyAtmos">—</td>
+        </tr>
+        <tr>
+          <th>Tuner</th><td id="d-tuner">—</td>
+          <th>window.screen</th><td id="d-screen">—</td>
+        </tr>
+      </table>
+      <div class="btn-row">
+        <button id="btn-deviceInfo" class="action-btn">Call deviceInfo()</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 3 — APP INFO
+    ═══════════════════════════════════════════ -->
+    <section id="tab-app" class="tab-content">
+      <h2>App Info</h2>
+      <table>
+        <tr>
+          <th>fetchAppId()</th><td id="appId" colspan="3">—</td>
+        </tr>
+        <tr>
+          <th>fetchAppRootPath()</th><td id="appRootPath" colspan="3" class="wrap">—</td>
+        </tr>
+        <tr>
+          <th>id</th><td id="ai-id">—</td>
+          <th>version</th><td id="ai-version">—</td>
+        </tr>
+        <tr>
+          <th>title</th><td id="ai-title">—</td>
+          <th>type</th><td id="ai-type">—</td>
+        </tr>
+        <tr>
+          <th>vendor</th><td id="ai-vendor">—</td>
+          <th>main</th><td id="ai-main">—</td>
+        </tr>
+        <tr>
+          <th>resolution</th><td id="ai-resolution">—</td>
+          <th>raw JSON</th><td id="ai-raw" class="wrap mono">—</td>
+        </tr>
+      </table>
+      <div class="btn-row">
+        <button id="btn-fetchAppInfo" class="action-btn">Fetch appinfo.json</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 4 — LUNA SERVICES
+    ═══════════════════════════════════════════ -->
+    <section id="tab-service" class="tab-content">
+      <h2>Luna Service Calls</h2>
+      <div class="service-grid">
+
+        <div class="service-card">
+          <h3>System Time</h3>
+          <p class="svc-uri">luna://com.palm.systemservice / time/getSystemTime</p>
+          <div class="svc-result" id="svc-time">—</div>
+          <button class="action-btn svc-btn" data-svc="time">Call</button>
+        </div>
+
+        <div class="service-card">
+          <h3>Network Status</h3>
+          <p class="svc-uri">luna://com.palm.connectionmanager / getStatus</p>
+          <div class="svc-result" id="svc-connman">—</div>
+          <button class="action-btn svc-btn" data-svc="connman">Call</button>
+        </div>
+
+        <div class="service-card">
+          <h3>SDK Version</h3>
+          <p class="svc-uri">luna://com.webos.service.tv.systemproperty / getSystemInfo</p>
+          <div class="svc-result" id="svc-sdkver">—</div>
+          <button class="action-btn svc-btn" data-svc="sdkver">Call</button>
+        </div>
+
+        <div class="service-card">
+          <h3>Sound Settings</h3>
+          <p class="svc-uri">luna://com.webos.settingsservice / getSystemSettings (sound)</p>
+          <div class="svc-result" id="svc-settings">—</div>
+          <button class="action-btn svc-btn" data-svc="settings">Call</button>
+        </div>
+
+        <div class="service-card">
+          <h3>Power State</h3>
+          <p class="svc-uri">luna://com.webos.service.tvpower / getPowerState</p>
+          <div class="svc-result" id="svc-power">—</div>
+          <button class="action-btn svc-btn" data-svc="power">Call</button>
+        </div>
+
+        <div class="service-card service-card-wide">
+          <h3>Custom Luna Call</h3>
+          <div class="custom-inputs">
+            <input id="custom-uri" type="text" placeholder="luna://service.name" />
+            <input id="custom-method" type="text" placeholder="method/name" />
+            <textarea id="custom-params" rows="2" placeholder='{"key": "value"}'></textarea>
+          </div>
+          <div class="svc-result" id="svc-custom">—</div>
+          <button class="action-btn svc-btn" data-svc="custom">Call</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 5 — KEY EVENTS
+    ═══════════════════════════════════════════ -->
+    <section id="tab-keys" class="tab-content">
+      <h2>Remote Control Key Events</h2>
+      <p class="hint">Press any key on the remote / keyboard. The diagram lights up on matching keys.</p>
+
+      <div class="key-display-row">
+        <div id="key-visual" class="key-visual">
+          <span id="key-name">—</span>
+          <span id="key-code" class="key-sub">keyCode: —</span>
+          <span id="key-type" class="key-sub">event: —</span>
+        </div>
+        <table class="key-stats-table">
+          <tr><th>keydown count</th><td id="kstat-down">0</td></tr>
+          <tr><th>keyup count</th><td id="kstat-up">0</td></tr>
+          <tr><th>keypress count</th><td id="kstat-press">0</td></tr>
+        </table>
+      </div>
+
+      <div class="dpad">
+        <div class="dpad-row"><span id="dpad-up" class="dpad-btn">▲</span></div>
+        <div class="dpad-row">
+          <span id="dpad-left" class="dpad-btn">◄</span>
+          <span id="dpad-ok" class="dpad-btn dpad-ok">OK</span>
+          <span id="dpad-right" class="dpad-btn">►</span>
+        </div>
+        <div class="dpad-row"><span id="dpad-down" class="dpad-btn">▼</span></div>
+        <div class="dpad-row">
+          <span id="dpad-back" class="dpad-btn">BACK</span>
+          <span id="dpad-info" class="dpad-btn">INFO</span>
+          <span id="dpad-menu" class="dpad-btn">MENU</span>
+        </div>
+        <div class="dpad-row color-row">
+          <span id="dpad-red"    class="dpad-btn dpad-red">● RED</span>
+          <span id="dpad-green"  class="dpad-btn dpad-green">● GREEN</span>
+          <span id="dpad-yellow" class="dpad-btn dpad-yellow">● YELLOW</span>
+          <span id="dpad-blue"   class="dpad-btn dpad-blue">● BLUE</span>
+        </div>
+        <div class="dpad-row">
+          <span id="dpad-rw"    class="dpad-btn">⏮</span>
+          <span id="dpad-play"  class="dpad-btn">▶</span>
+          <span id="dpad-pause" class="dpad-btn">⏸</span>
+          <span id="dpad-ff"    class="dpad-btn">⏭</span>
+          <span id="dpad-stop"  class="dpad-btn">⏹</span>
+        </div>
+      </div>
+
+      <div id="key-log" class="key-log"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 6 — LIFECYCLE
+    ═══════════════════════════════════════════ -->
+    <section id="tab-lifecycle" class="tab-content">
+      <h2>App Lifecycle Events</h2>
+      <div class="lifecycle-grid">
+
+        <div class="lc-card">
+          <h3>Page Visibility</h3>
+          <div class="lc-state" id="lc-vis-state">visible</div>
+          <p class="lc-desc">document.visibilitychange</p>
+          <div id="lc-vis-log" class="mini-log"></div>
+        </div>
+
+        <div class="lc-card">
+          <h3>Window Focus</h3>
+          <div class="lc-state" id="lc-focus-state">—</div>
+          <p class="lc-desc">focus / blur events</p>
+          <div id="lc-focus-log" class="mini-log"></div>
+        </div>
+
+        <div class="lc-card">
+          <h3>Page Unload</h3>
+          <div class="lc-state" id="lc-unload-state">listening…</div>
+          <p class="lc-desc">beforeunload / pagehide</p>
+          <div id="lc-unload-log" class="mini-log"></div>
+        </div>
+
+        <div class="lc-card">
+          <h3>webOS Relaunch</h3>
+          <div class="lc-state" id="lc-relaunch-state">not triggered</div>
+          <p class="lc-desc">Mojo.relaunch / webOSRelaunch</p>
+          <div id="lc-relaunch-log" class="mini-log"></div>
+        </div>
+
+      </div>
+      <div class="btn-row">
+        <button id="btn-simulate-relaunch" class="action-btn">Simulate Relaunch</button>
+        <button id="btn-simulate-blur" class="action-btn warn">Simulate Blur</button>
+        <button id="btn-simulate-hidden" class="action-btn warn">Simulate visibilityHidden</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 7 — CURSOR / INPUT
+    ═══════════════════════════════════════════ -->
+    <section id="tab-cursor" class="tab-content">
+      <h2>Cursor &amp; Input</h2>
+      <table>
+        <tr>
+          <th>keyboard.isShowing()</th><td id="kb-state">—</td>
+          <th>Auto-poll (1 s)</th><td id="kb-poll">OFF</td>
+        </tr>
+        <tr>
+          <th>Cursor X</th><td id="cursor-x">—</td>
+          <th>Cursor Y</th><td id="cursor-y">—</td>
+        </tr>
+        <tr>
+          <th>Pointer type</th><td id="pointer-type" colspan="3">—</td>
+        </tr>
+      </table>
+      <div class="btn-row">
+        <button id="btn-kb-poll" class="action-btn">Start KB Poll</button>
+        <button id="btn-kb-check" class="action-btn">Check Now</button>
+      </div>
+
+      <h3 style="margin-top:20px">Virtual Keyboard Test Input</h3>
+      <div class="input-row">
+        <input id="vkb-input" type="text" placeholder="Focus here to trigger VKB" />
+        <span id="vkb-status" class="badge">—</span>
+      </div>
+
+      <h3 style="margin-top:20px">Pointer / Magic Remote Tracker</h3>
+      <div id="pointer-canvas" class="pointer-canvas">
+        <span class="pointer-hint">Move pointer or magic remote here</span>
+        <div id="pointer-dot" class="pointer-dot" style="display:none"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TAB 8 — EVENT LOG
+    ═══════════════════════════════════════════ -->
+    <section id="tab-log" class="tab-content">
+      <h2>Global Event Log <span class="badge" id="log-count">0</span></h2>
+      <div class="btn-row">
+        <button id="btn-clear-log" class="action-btn warn">Clear</button>
+        <button id="btn-copy-log" class="action-btn">Copy to Clipboard</button>
+      </div>
+      <div id="event-log" class="event-log"></div>
+    </section>
+
+    <script src="js/app4tv.js"></script>
+  </body>
+</html>
