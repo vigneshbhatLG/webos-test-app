@@ -62,6 +62,27 @@
         <button id="btn-refresh-system" class="action-btn">Refresh</button>
         <button id="btn-platformBack" class="action-btn warn">platformBack()</button>
       </div>
+
+      <h3 style="margin-top:20px">Screen Orientation</h3>
+      <table>
+        <tr>
+          <th>webOSSystem present</th><td id="orient-sys-present">—</td>
+          <th>current orientation</th><td id="orient-current">—</td>
+        </tr>
+        <tr>
+          <th>screen.orientation (Web API)</th><td id="orient-web" colspan="3">—</td>
+        </tr>
+        <tr>
+          <th>last setWindowOrientation</th><td id="orient-last-set" colspan="3">—</td>
+        </tr>
+      </table>
+      <div class="btn-row">
+        <button id="btn-orient-landscape"          class="action-btn">Landscape</button>
+        <button id="btn-orient-portrait"           class="action-btn">Portrait</button>
+        <button id="btn-orient-reversed-landscape" class="action-btn">Rev. Landscape</button>
+        <button id="btn-orient-reversed-portrait"  class="action-btn">Rev. Portrait</button>
+        <button id="btn-orient-refresh"            class="action-btn">Refresh</button>
+      </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
@@ -232,8 +253,24 @@
         <div class="dpad-row"><span id="dpad-down" class="dpad-btn">▼</span></div>
         <div class="dpad-row">
           <span id="dpad-back" class="dpad-btn">BACK</span>
+          <span id="dpad-home" class="dpad-btn">HOME</span>
+          <span id="dpad-mute" class="dpad-btn">MUTE</span>
           <span id="dpad-info" class="dpad-btn">INFO</span>
           <span id="dpad-menu" class="dpad-btn">MENU</span>
+        </div>
+        <div class="dpad-row">
+          <span id="dpad-1" class="dpad-btn dpad-num">1</span>
+          <span id="dpad-2" class="dpad-btn dpad-num">2</span>
+          <span id="dpad-3" class="dpad-btn dpad-num">3</span>
+          <span id="dpad-4" class="dpad-btn dpad-num">4</span>
+          <span id="dpad-5" class="dpad-btn dpad-num">5</span>
+        </div>
+        <div class="dpad-row">
+          <span id="dpad-6" class="dpad-btn dpad-num">6</span>
+          <span id="dpad-7" class="dpad-btn dpad-num">7</span>
+          <span id="dpad-8" class="dpad-btn dpad-num">8</span>
+          <span id="dpad-9" class="dpad-btn dpad-num">9</span>
+          <span id="dpad-0" class="dpad-btn dpad-num">0</span>
         </div>
         <div class="dpad-row color-row">
           <span id="dpad-red"    class="dpad-btn dpad-red">● RED</span>
@@ -343,6 +380,17 @@
       </div>
       <div id="event-log" class="event-log"></div>
     </section>
+
+    <div id="exit-modal" class="exit-modal" aria-hidden="true">
+      <div class="exit-dialog" role="dialog" aria-modal="true" aria-labelledby="exit-title">
+        <h3 id="exit-title">Do you want to exit the app?</h3>
+        <p class="exit-note">Press BACK again to exit, or choose Cancel.</p>
+        <div class="btn-row">
+          <button id="btn-exit-confirm" class="action-btn warn">Exit</button>
+          <button id="btn-exit-cancel" class="action-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
 
     <script src="js/app4tv.js"></script>
   </body>
